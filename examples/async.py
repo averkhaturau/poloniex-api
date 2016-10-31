@@ -15,8 +15,8 @@ class App(AsyncApp):
 
     async def main(self):
         self.push.subscribe(topic="BTC_ETH", handler=self.trades)
-        self.push.subscribe(topic="ticker", handler=self.ticker)
-        volume = await self.public.return24hVolume()
+#        self.push.subscribe(topic="ticker", handler=self.ticker)
+        volume = await self.public.returnOrderBook(currency_pair="BTC_ETH", depth=10)
 
         self.logger.info(volume)
 
