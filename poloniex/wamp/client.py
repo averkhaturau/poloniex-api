@@ -62,7 +62,7 @@ class WAMPClient():
         subscription = self.subscriptions[subscription_id]
 
         handler = subscription['handler']
-        await handler({'ops':event.args, **event.kwargs})
+        await handler({"message":event.args, **event.kwargs})
 
     async def _on_subscribed(self, msg):
         request_id = msg.request
