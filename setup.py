@@ -10,7 +10,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='poloniex',
-    version='0.1',
+    version='0.1.1',
     packages=[
         'poloniex',
         'poloniex.wamp',
@@ -20,7 +20,7 @@ setup(
     description='Python Poloniex API',
     long_description=README,
     url='https://github.com/absortium/poloniex.git',
-    author='Andrey Samokhvalov',
+    author='Andrey Samokhvalov, Aliaksei Verkhaturau',
     author_email='andrew.shvv@gmail.com',
     install_requires=[
         'asyncio',

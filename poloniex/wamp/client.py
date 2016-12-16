@@ -65,12 +65,16 @@ class WAMPClient():
         await handler({"message":event.args, **event.kwargs})
 
     async def _on_subscribed(self, msg):
-        request_id = msg.request
-        subscription_id = msg.subscription
+        try:
+            request_id = msg.request
+            subscription_id = msg.subscription
 
-        subscription = self.queue.pop(request_id)
-        subscription['request_id'] = request_id
-        self.subscriptions[subscription_id] = subscription
+            subscription = self.queue.pop(request_id)
+            subscription['request_id'] = request_id
+            self.subscriptions[subscription_id] = subscription
+        except:
+            print(msg)
+            raise
 
     async def _on_other(self, msg):
         raise NotImplementedError("Unimplemented handler")
